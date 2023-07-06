@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">SONG L08</string>
+    <string name="rd1">1</string>
+    <string name="rd2">2</string>
+    <string name="rd3">3</string>
+    <string name="rd4">4</string>
+    <string name="rd5">5</string>
+    <string name="title">Song Title</string>
+    <string name="singer">Singers</string>
+    <string name="year">Year</string>
+    <string name="star">Stars</string>
+    <string name="insert">INSERT</string>
+    <string name="showlist">SHOW LIST</string>
+    <string name="edt1">Enter song title here</string>
+    <string name="edt2">Enter singers name here</string>
+    <string name="edt3">Enter year of release here</string>
+
+
+</resources>

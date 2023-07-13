@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                         rating +=5;
                     }
                     // Insert a task
-                    db.insertTask(edt1.getText().toString(),edt2.getText().toString(),yearOK,rating);
+                    db.insertSong(edt1.getText().toString(),edt2.getText().toString(),yearOK,rating);
                     Toast.makeText(MainActivity.this, "Insert sucessfully", Toast.LENGTH_SHORT).show();
                 }
 

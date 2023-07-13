@@ -90,7 +90,7 @@ public class dbHelper extends SQLiteOpenHelper {
 
         values.put(COLUMN_YEAR, data.getYear());
         // Store the column name as key and the date as value
-        values.put(COLUMN_STARS, data.getStars(););
+        values.put(COLUMN_STARS, data.getStars());
 
 
 

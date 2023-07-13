@@ -52,7 +52,7 @@ public class dbHelper extends SQLiteOpenHelper {
 
     }
 
-    public void insertTask(String title, String singer,int year,int stars){
+    public void insertSong(String title, String singer,int year,int stars){
 
         // Get an instance of the database for writing
         SQLiteDatabase db = this.getWritableDatabase();
@@ -76,6 +76,30 @@ public class dbHelper extends SQLiteOpenHelper {
         db.close();
 
     }
+    public void insertSong2(Song data){
+
+        // Get an instance of the database for writing
+        SQLiteDatabase db = this.getWritableDatabase();
+        // We use ContentValues object to store the values for
+        //  the db operation
+        ContentValues values = new ContentValues();
+        // Store the column name as key and the description as value
+        values.put(COLUMN_TITLE, data.getTitle());
+        // Store the column name as key and the date as value
+        values.put(COLUMN_SINGERS, data.getSingers());
+
+        values.put(COLUMN_YEAR, data.getYear());
+        // Store the column name as key and the date as value
+        values.put(COLUMN_STARS, data.getStars(););
+
+
+
+        // Insert the row into the TABLE_TASK
+        db.insert(TABLE_SONG, null, values);
+        // Close the database connection
+        db.close();
+
+    }
     public ArrayList<Song> getSong() {
         ArrayList<Song> tasks = new ArrayList<Song>();
         SQLiteDatabase db = this.getReadableDatabase();
@@ -89,7 +113,7 @@ public class dbHelper extends SQLiteOpenHelper {
                 String singer = cursor.getString(2);
                 int year=cursor.getInt(3);
                 int star=cursor.getInt(4);
-                Song obj = new Song( title, singer,year,star);
+                Song obj = new Song( id,title, singer,year,star);
                 tasks.add(obj);
             } while (cursor.moveToNext());
         }
@@ -110,7 +134,7 @@ public class dbHelper extends SQLiteOpenHelper {
                 String singer = cursor.getString(2);
                 int year=cursor.getInt(3);
                 int star=cursor.getInt(4);
-                Song obj = new Song( title, singer,year,star);
+                Song obj = new Song( id,title, singer,year,star);
                 if (star==5){
                     tasks.add(obj);
                 }
@@ -120,7 +144,7 @@ public class dbHelper extends SQLiteOpenHelper {
         db.close();
         return tasks;
     }
-    public int updateNote(Song data){
+    public int update(Song data){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_TITLE,data.getTitle());
@@ -129,15 +153,15 @@ public class dbHelper extends SQLiteOpenHelper {
         values.put(COLUMN_STARS,data.getStars());
 
         String condition = COLUMN_ID + "= ?";
-        String[] args = {String.valueOf(data.get_id())};
+        String[] args = {String.valueOf(data.getId())};
         int result = db.update(TABLE_SONG, values, condition, args);
         db.close();
         return result;
     }
-    public int deleteNote(int id){
+    public int deleteNote(String title){
         SQLiteDatabase db = this.getWritableDatabase();
-        String condition = COLUMN_ID + "= ?";
-        String[] args = {String.valueOf(id)};
+        String condition = COLUMN_TITLE + "= ?";
+        String[] args = {String.valueOf(title)};
         int result = db.delete(TABLE_SONG, condition, args);
         db.close();
         return result;

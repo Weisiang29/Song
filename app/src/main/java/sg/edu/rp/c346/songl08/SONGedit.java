@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class SONGedit extends AppCompatActivity {
 
     TextView tvID;
-    EditText et1 ,et2,et3;
+    EditText et1 ,et2,et3 ,edtID;
     Button btnUpdate, btnDelete,btncancel;
 
     RadioButton rd1,rd2,rd3,rd4,rd5;
@@ -39,6 +39,8 @@ public class SONGedit extends AppCompatActivity {
         rd3=findViewById(R.id.edtrdbt3);
         rd4=findViewById(R.id.edtrdbt4);
         rd5=findViewById(R.id.edtrdbt5);
+        edtID=findViewById(R.id.editID);
+
         Song data;
 
 
@@ -46,27 +48,64 @@ public class SONGedit extends AppCompatActivity {
 
         Intent i = getIntent();
         data = (Song) i.getSerializableExtra("data");
-        tvID.setText(data.get_id());
-        et1.setText(data.getTitle());
-        et2.setText(data.getSingers());
-        et3.setText(data.getYear());
-        int star=data.getStars();
-        if (star==1){
-            rd1.setChecked(true);
-        }
-        else if (star==2){
-            rd2.setChecked(true);
-        }
-        else if (star==3){
-            rd3.setChecked(true);
-        }
-        else if (star==4){
-            rd4.setChecked(true);
-        }
-        else if (star==5){
-            rd5.setChecked(true);
-        }
 
+        String title=data.getTitle();
+        String singer=data.getSingers();
+        int year= data.getYear();
+        int id =data.getId();
+
+
+
+        edtID.setText(String.format("%d",id));
+        edtID.setEnabled(false);
+        et1.setText(data.getTitle());
+        et2.setText(singer);
+        et3.setText(String.format("%d",year));
+
+
+        dbHelper db= new dbHelper(SONGedit.this);
+
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                data.setTitle(et1.getText().toString());
+                data.setSingers(et2.getText().toString());
+                data.setYear(Integer.parseInt(et3.getText().toString()));
+                int rating=0;
+                if(rd1.isChecked()){ rating=1;}
+                else if (rd2.isChecked()) {
+                    rating=2;
+                }
+                else if (rd3.isChecked()) {
+                    rating=3;
+                }
+                else if (rd4.isChecked()) {
+                    rating=4;
+                }
+                else if (rd5.isChecked()) {
+                    rating=5;
+                }
+                data.setStars(rating);
+                db.insertSong2(data);
+                db.close();
+                finish();
+            }
+        });
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                db.deleteNote(title);
+                db.close();
+                finish();
+            }
+        });
+
+       btncancel.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               finish();
+           }
+       });
 
 
 

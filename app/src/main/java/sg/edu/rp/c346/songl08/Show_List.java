@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -69,19 +70,20 @@ public class Show_List extends AppCompatActivity {
         });
         ShowList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long l) {
                 Intent intent= new Intent(Show_List.this,SONGedit.class);
                 if(buttonActivated==true){
 
                     Song data = al.get(position);
+                    Toast.makeText(Show_List.this, data.getTitle(), Toast.LENGTH_SHORT).show();
                     Intent pass = new Intent(Show_List.this,SONGedit.class);
-                    pass.putExtra("data", (CharSequence) data);
+                    pass.putExtra("data",data);
                     startActivity(pass);
                 }
                 else{
                     Song data = al.get(position);
                     Intent pass = new Intent(Show_List.this,SONGedit.class);
-                    pass.putExtra("data", (CharSequence) data);
+                    pass.putExtra("data", data);
                     startActivity(pass);
                 }
                 startActivity(intent);

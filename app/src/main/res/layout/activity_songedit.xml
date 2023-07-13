@@ -5,7 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".SONGedit">
+
+    <TextView
+        android:id="@+id/tvID1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="id:" />
 
     <TextView
         android:layout_width="match_parent"
@@ -13,77 +19,60 @@
         android:text="@string/title" />
 
     <EditText
-        android:id="@+id/edtSong"
+        android:id="@+id/edit1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="@string/edt1" />
-
+        />
     <TextView
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/singer" />
 
     <EditText
-        android:id="@+id/edtSinger"
+        android:id="@+id/edit2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="@string/edt2" />
-
+        />
     <TextView
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/year" />
 
     <EditText
-        android:id="@+id/edtYear"
+        android:id="@+id/edit3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="@string/edt3" />
-
-    <TextView
-        android:id="@+id/test"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/star" />
-
+        />
     <RadioGroup
-        android:id="@+id/Rating"
+        android:id="@+id/edtRating"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <RadioButton
-            android:id="@+id/rdbt1"
+            android:id="@+id/edtrdbt1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/rd1"
             android:checked="true"></RadioButton>
         <RadioButton
-            android:id="@+id/rdbt2"
+            android:id="@+id/edtrdbt2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/rd2"></RadioButton>
         <RadioButton
-            android:id="@+id/rdbt3"
+            android:id="@+id/edtrdbt3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/rd3"
             android:checked="true"></RadioButton>
         <RadioButton
-            android:id="@+id/rdbt4"
+            android:id="@+id/edtrdbt4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/rd4"></RadioButton>
         <RadioButton
-            android:id="@+id/rdbt5"
+            android:id="@+id/edtrdbt5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/rd5"></RadioButton>
@@ -91,27 +80,31 @@
 
 
     </RadioGroup>
-    <LinearLayout
-        android:layout_width="match_parent"
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <Button
+        android:id="@+id/btnupdate"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <Button
-            android:id="@+id/btnINSERT"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="@string/insert"></Button>
+        android:weight="1"
+        android:text="Update" />
+    <Button
+        android:id="@+id/btndelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:weight="1"
+        android:text="Delete" />
 
-        <Button
-            android:id="@+id/btnSHOW"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="@string/showlist"></Button>
-    </LinearLayout>
 
-    <ListView
-        android:id="@+id/Songlist"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+
+</LinearLayout>
+    <Button
+        android:id="@+id/btncancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:weight="1"
+        android:text="Cancel" />
+
 </LinearLayout>

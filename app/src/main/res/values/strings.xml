@@ -10,10 +10,13 @@
     <string name="year">Year</string>
     <string name="star">Stars</string>
     <string name="insert">INSERT</string>
+    <string name="edit">EDIT</string>
     <string name="showlist">SHOW LIST</string>
     <string name="edt1">Enter song title here</string>
     <string name="edt2">Enter singers name here</string>
     <string name="edt3">Enter year of release here</string>
+    <string name="btn5star">SHOW ALL SONGS WITH 5 STARS</string>
+
 
 
 </resources>

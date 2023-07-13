@@ -26,6 +26,12 @@ public class Song {
     public String getSingers(){
         return singers;
     }
+    public int getStars(){return stars;}
+    public  String toString(){
+        String output = String.format("%-18s %-15s %-7d %d",getTitle(),getSingers(),getYear(),getStars());
+        return output;
+    }
+
 
 
 

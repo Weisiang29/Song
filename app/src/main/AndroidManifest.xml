@@ -12,6 +12,12 @@
         android:theme="@style/Theme.SONGL08"
         tools:targetApi="31">
         <activity
+            android:name=".Show_List"
+            android:exported="false" />
+        <activity
+            android:name=".SONGedit"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

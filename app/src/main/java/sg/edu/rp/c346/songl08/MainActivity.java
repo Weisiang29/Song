@@ -2,6 +2,8 @@ package sg.edu.rp.c346.songl08;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -18,7 +20,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     EditText edt1,edt2,edt3;
     TextView test;
-    Button btn1,btn2;
+    Button btn1,btn2 ,btn3;
     RadioGroup rdRating;
     RadioButton rating1,rating2,rating3,rating4,rating5;
     ListView SongList;
@@ -32,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         edt2=findViewById(R.id.edtSinger);
         edt3=findViewById(R.id.edtYear);
         btn1=findViewById(R.id.btnINSERT);
-        btn2=findViewById(R.id.btnSHOW);
+        btn3=findViewById(R.id.btnSHOW);
         rdRating=findViewById(R.id.Rating);
         rating1=findViewById(R.id.rdbt1);
         rating2=findViewById(R.id.rdbt2);
@@ -40,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
         rating4=findViewById(R.id.rdbt4);
         rating5=findViewById(R.id.rdbt5);
         SongList=findViewById(R.id.Songlist);
+
+
+
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,25 +90,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btn2.setOnClickListener(new View.OnClickListener() {
+
+
+        btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+            Intent intent =new Intent(MainActivity.this,Show_List.class);
+            startActivity(intent);
 
 
-                    dbHelper db = new dbHelper(MainActivity.this);
-                    ArrayList<Song> data = db.getTasks();
-                    db.close();
-                    int sum=0;
-                    for(int x=0;x<data.size();x++){
-                        sum+=1;
-                    }
-                    String[] output = new String[sum];
-                    for(int j=0;j<data.size();j++){
-
-                        output[j]=String.format("%-5d %-20s  %-15s %-8d %d   ",j+1,data.get(j).getTitle(),data.get(j).getSingers(),data.get(j).getYear(),data.get(j).getStar());
-                    }
-                    ArrayAdapter adapter= new ArrayAdapter(MainActivity.this, android.R.layout.simple_list_item_1,output);
-                    SongList.setAdapter(adapter);
 
 
 
@@ -114,4 +109,5 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
 }

@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+
 public class MainActivity extends AppCompatActivity {
     EditText edt1,edt2,edt3;
     TextView test;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     RadioGroup rdRating;
     RadioButton rating1,rating2,rating3,rating4,rating5;
     ListView SongList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,6 +109,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+    }@Override
+    public void onResume(){
+        super.onResume();
+        edt1.setText("");
+        edt2.setText("");
+        edt3.setText("");
 
     }
 

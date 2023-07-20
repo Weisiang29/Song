@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -53,6 +54,12 @@ public class SONGedit extends AppCompatActivity {
         String singer=data.getSingers();
         int year= data.getYear();
         int id =data.getId();
+        int stars=data.getStars();
+        if (data != null) {
+            Log.d("SONGedit", "Received Song: " + data.getTitle() + " - " + data.getSingers() + " - " + data.getYear());
+        } else {
+            Log.e("SONGedit", "Data is null");
+        }
 
 
 
@@ -61,6 +68,21 @@ public class SONGedit extends AppCompatActivity {
         et1.setText(data.getTitle());
         et2.setText(singer);
         et3.setText(String.format("%d",year));
+        if(stars==1){
+            rd1.setChecked(true);
+        }
+        else if(stars==2){
+            rd2.setChecked(true);
+        }
+        else if(stars==3){
+            rd3.setChecked(true);
+        }
+        else if(stars==4){
+            rd4.setChecked(true);
+        }
+        else if(stars==5){
+            rd5.setChecked(true);
+        }
 
 
         dbHelper db= new dbHelper(SONGedit.this);
@@ -68,6 +90,8 @@ public class SONGedit extends AppCompatActivity {
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
                 data.setTitle(et1.getText().toString());
                 data.setSingers(et2.getText().toString());
                 data.setYear(Integer.parseInt(et3.getText().toString()));
@@ -86,7 +110,7 @@ public class SONGedit extends AppCompatActivity {
                     rating=5;
                 }
                 data.setStars(rating);
-                db.insertSong2(data);
+                db.update(data);
                 db.close();
                 finish();
             }

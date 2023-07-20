@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/image"
     android:orientation="vertical"
     tools:context=".SONGedit">
-
 
 
     <TextView
@@ -14,13 +14,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="ID" />
+
     <EditText
         android:id="@+id/editID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-         />
+        android:inputType="textPersonName" />
 
     <TextView
         android:layout_width="match_parent"
@@ -30,8 +30,8 @@
     <EditText
         android:id="@+id/edit1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        android:layout_height="wrap_content" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,8 +40,8 @@
     <EditText
         android:id="@+id/edit2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        android:layout_height="wrap_content" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -50,8 +50,8 @@
     <EditText
         android:id="@+id/edit3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        android:layout_height="wrap_content" />
+
     <RadioGroup
         android:id="@+id/edtRating"
         android:layout_width="match_parent"
@@ -62,24 +62,28 @@
             android:id="@+id/edtrdbt1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/rd1"
-            android:checked="true"></RadioButton>
+            android:checked="true"
+            android:text="@string/rd1"></RadioButton>
+
         <RadioButton
             android:id="@+id/edtrdbt2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/rd2"></RadioButton>
+
         <RadioButton
             android:id="@+id/edtrdbt3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/rd3"
-            android:checked="true"></RadioButton>
+            android:checked="true"
+            android:text="@string/rd3"></RadioButton>
+
         <RadioButton
             android:id="@+id/edtrdbt4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/rd4"></RadioButton>
+
         <RadioButton
             android:id="@+id/edtrdbt5"
             android:layout_width="wrap_content"
@@ -87,26 +91,28 @@
             android:text="@string/rd5"></RadioButton>
 
 
-
     </RadioGroup>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
-    <Button
-        android:id="@+id/btnupdate"
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Update" />
-    <Button
-        android:id="@+id/btndelete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Delete" />
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnupdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update" />
+
+        <Button
+            android:id="@+id/btndelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete" />
 
 
+    </LinearLayout>
 
-</LinearLayout>
     <Button
         android:id="@+id/btncancel"
         android:layout_width="wrap_content"
